@@ -20,7 +20,7 @@ const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
 app.use(
   cors({
-    origin: "*", 
+    origin: process.env.CORS_ORIGIN, 
     methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
     credentials: true 
   })
