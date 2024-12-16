@@ -47,6 +47,10 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.get('/hi', (req, res) => {
+  res.send('Mentorship API');
+});
+
 
 
 // Register Step 1
