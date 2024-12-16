@@ -27,6 +27,13 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 mongoose.connect(process.env.MONGO_URI
 );
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || 'http://localhost:3000');  // Allow requests from localhost (or your frontend URL)
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Allow methods
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Allow specific headers like Content-Type and Authorization
+  next();
+});
+
 // Token verification middleware
 const verifyToken = (req, res, next) => {
   const { token } = req.cookies;
