@@ -1,12 +1,13 @@
-# Mentorship Matching Platform - Frontend
+# Mentorship Matching Platform - Backend
 
 ## Description
 
-The frontend for the Mentorship Matching Platform connects mentors and mentees through a seamless user interface. It allows users to sign up, create profiles, browse others, and find matches using a smart matchmaking algorithm.
+The backend for the Mentorship Matching Platform provides the core functionality to manage user authentication, profiles, matchmaking, and mentorship requests. It interacts with the database and serves APIs to the frontend.
 
 ## Live Application
 
-Access the deployed frontend application: https://mentormatch-frontend.onrender.com/
+Access the deployed backend application here : https://mentormatch-frontend.onrender.com/
+
 
 ## Setup Instructions
 
@@ -16,14 +17,15 @@ Ensure the following tools are installed on your system:
 
 - Node.js (v14+)
 - npm or yarn
+- MongoDB account
 
 ### Installation
 
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/diyajcyriac/mentormatch-frontend.git
-    cd mentormatch-frontend
+    git clone https://github.com/diyajcyriac/mentormatch-backend.git
+    cd mentormatch-backend
     ```
 
 2. Install dependencies:
@@ -34,46 +36,68 @@ Ensure the following tools are installed on your system:
     yarn install
     ```
 
-3. Configure environment variables:
+3. Set up the database:
+   Create a database named `mentorship_platform`.
+
+4. Run database migrations:
+
+    ```bash
+    npm run migrate
+    # or
+    yarn migrate
+    ```
+
+5. Configure environment variables:
    Create a `.env` file in the root directory with the following content:
 
     ```env
-    REACT_APP_BACKEND_URL=https://mentormatch-backend-y3wu.onrender.com
+    MONGO_URI=mongodb+srv://<username>:<password>@cluster0.mongodb.net/
+    JWT_SECRET=<your_jwt_secret>
+    CORS_ORIGIN=https://mentormatch-frontend.onrender.com
     ```
 
-4. Run the application:
+   Replace `<username>`, `<password>`, and `<your_jwt_secret>` with your actual values.
+
+6. Run the application:
 
    **Development Mode:**
 
     ```bash
-    npm start
+    npm run dev
     # or
-    yarn start
+    yarn dev
     ```
 
    **Production Build:**
 
     ```bash
     npm run build
-    npm serve
+    npm start
     ```
 
 ### Technologies Used
 
-- Frontend Framework: React.js
-- State Management: React Context API
-- Styling: CSS3, Responsive Design
+- Backend Framework: Node.js, Express.js
+- Database: MongoDB
+- Authentication: JWT
+- Hosting: Render
 
 ### Features
 
-- **User Interface**
-- **User Registration and Login**: Secure login and registration with input validation.
-- **Profile Setup**: Create and edit user profiles with role, skills, and interests.
-- **User Discovery**: Browse and filter profiles based on role, skills, and interests.
-- **Responsive Design**: Fully functional across all devices and screen sizes.
+- **Core Functionalities**
+  - **User Authentication**: Secure registration, login, and logout.
+  - **Profile Management**: Create, edit, and delete profiles.
+  - **Matchmaking Algorithm**: Matches users based on shared skills and interests.
+  - **Mentorship Requests**: Send requests, and accept or decline mentorship offers.
+
+- **Additional Features**
+  - **Edge Case Handling**: Validates inputs and provides alternative suggestions if no matches are found.
+  - **Scalable Architecture**: Designed to handle increased user traffic.
 
 ### Deployment
 
-The frontend is hosted on Render. Ensure to set the environment variables in the Render dashboard for a smooth deployment.
+The backend is hosted on Render. Ensure to configure the environment variables (`MONGO_URI`, `JWT_SECRET`, and `CORS_ORIGIN`) securely in the Render dashboard.
 
+### Contribution
 
+Feel free to raise issues or submit pull requests to improve the project.
