@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/api', (req, res) => {
+app.get('/api-api', (req, res) => {
   res.send('Hi there');
 });
 // Register Step 1
