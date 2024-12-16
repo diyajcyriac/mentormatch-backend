@@ -20,7 +20,9 @@ const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
 app.use(cors({
   origin: 'https://mentormatch-frontend-2cv2udcok-diyas-projects-723f1dff.vercel.app', // Only allow this domain
-  credentials: true  // If you're sending cookies/tokens with the request
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allow specific headers
+  credentials: true  // Allow cookies (if necessary)
 }));
 
 app.use(express.json());
