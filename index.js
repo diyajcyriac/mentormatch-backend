@@ -56,6 +56,10 @@ app.use('/api', mentorshipRoutes);
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+
+app.get('/api', (req, res) => {
+  res.send('Hi there');
+});
 // Register Step 1
 app.post("/register-step-1", async (req, res) => {
   const { username, password, role } = req.body;
