@@ -6,23 +6,17 @@
         "use": "@vercel/node"
       }
     ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "index.js"
-      }
-    ],
     "headers": [
       {
         "source": "/(.*)",
         "headers": [
           {
             "key": "Access-Control-Allow-Origin",
-            "value": "https://mentormatch-frontend-2cv2udcok-diyas-projects-723f1dff.vercel.app" 
+            "value": "https://mentormatch-frontend-2cv2udcok-diyas-projects-723f1dff.vercel.app"  
           },
           {
             "key": "Access-Control-Allow-Methods",
-            "value": "GET, POST, PUT, DELETE, OPTIONS"
+            "value": "GET, POST, PUT, DELETE, OPTIONS"  
           },
           {
             "key": "Access-Control-Allow-Headers",
@@ -30,7 +24,7 @@
           },
           {
             "key": "Access-Control-Allow-Credentials",
-            "value": "true" 
+            "value": "true"  
           }
         ]
       }
