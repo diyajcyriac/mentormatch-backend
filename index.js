@@ -43,6 +43,11 @@ const verifyToken = (req, res, next) => {
 
 app.use('/api', mentorshipRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
+
 
 // Register Step 1
 app.post("/register-step-1", async (req, res) => {
