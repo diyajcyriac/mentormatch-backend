@@ -74,6 +74,6 @@ Ensure the following tools are installed on your system:
 
 ### Deployment
 
-The frontend is hosted on Render. Ensure to set the environment variables (`REACT_APP_BACKEND_URL`) in the Render dashboard for a smooth deployment.
+The frontend is hosted on Render. Ensure to set the environment variables in the Render dashboard for a smooth deployment.
 
 
