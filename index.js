@@ -17,8 +17,12 @@ const uploadMiddleware = multer({ dest: "uploads/" });
 const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
-// Middleware setup
-// app.use(cors({ credentials: true, origin: process.env.CORS_ORIGIN }));
+
+app.use(cors({
+  origin: 'https://mentormatch-frontend-2cv2udcok-diyas-projects-723f1dff.vercel.app', // Only allow this domain
+  credentials: true  // If you're sending cookies/tokens with the request
+}));
+
 app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
