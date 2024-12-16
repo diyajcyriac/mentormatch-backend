@@ -20,9 +20,9 @@ const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
 app.use(
   cors({
-    origin: "*", // Use the allowed origin, or allow all origins
+    origin: "*", 
     methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
-    credentials: true // Enable cookies and authentication sharing
+    credentials: true 
   })
 );
 
@@ -56,7 +56,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.get('/api-api', (req, res) => {
+app.get('/api', (req, res) => {
   res.send('Hi there');
 });
 // Register Step 1
