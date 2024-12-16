@@ -290,9 +290,9 @@ app.get("/profile", verifyToken, (req, res) => {
   res.json(req.user);
 });
 
-// Logout
 app.post("/logout", (req, res) => {
-  res.clearCookie("token").json({ message: "Logged out successfully" });
+  res.clearCookie("token", { httpOnly: true, secure: true, sameSite: "None" });
+  res.json({ message: "Logged out successfully" });
 });
 
 // Create a post
