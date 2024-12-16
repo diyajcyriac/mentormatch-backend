@@ -20,7 +20,7 @@ const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN || "*", // Use the allowed origin, or allow all origins
+    origin: "*", // Use the allowed origin, or allow all origins
     methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
     credentials: true // Enable cookies and authentication sharing
   })
@@ -32,8 +32,7 @@ app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
 // MongoDB connection
-mongoose.connect(process.env.MONGO_URI
-);
+mongoose.connect(process.env.MONGO_URI);
 
 
 
