@@ -8,7 +8,7 @@ const multer = require("multer");
 const fs = require("fs");
 const UserProfile = require("./models/UserProfile");
 const Post = require("./models/Post"); 
-const mentorshipRoutes = require('./mentorshipRoutes');
+const mentorshipRoutes = require('./MentorshipRoutes');
 const MentorshipRequest = require('./models/MentorshipRequest');
 require('dotenv').config();
 
