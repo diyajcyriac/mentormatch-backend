@@ -18,12 +18,14 @@ const salt = bcrypt.genSaltSync(10);
 const secret = process.env.JWT_SECRET || "asdfe45we45w345wegw345werjktjwertkj";
 
 
-app.use(cors({
-  origin: 'https://mentormatch-frontend-2cv2udcok-diyas-projects-723f1dff.vercel.app', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-  credentials: true  
-}));
+app.use(
+  cors({
+    origin: process.env.CORS_ORIGIN || "*", // Use the allowed origin, or allow all origins
+    methods: "GET,POST,PUT,DELETE,PATCH,OPTIONS",
+    credentials: true // Enable cookies and authentication sharing
+  })
+);
+
 
 app.use(express.json());
 app.use(cookieParser());
@@ -33,12 +35,7 @@ app.use("/uploads", express.static(__dirname + "/uploads"));
 mongoose.connect(process.env.MONGO_URI
 );
 
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || 'http://localhost:3000');  // Allow requests from localhost (or your frontend URL)
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');  // Allow methods
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');  // Allow specific headers like Content-Type and Authorization
-//   next();
-// });
+
 
 // Token verification middleware
 const verifyToken = (req, res, next) => {
